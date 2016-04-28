@@ -1,0 +1,34 @@
+---
+title: "Workflow"
+author: "Lindsay R. Carr"
+date: "April 27, 2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Workflow
+
+```{r workflow}
+# source function files
+source("scripts/getMyDataframe.R")
+source("scripts/printMyPlots.R")
+
+# get dataframe
+mydf <- getMyDataframe("data/conterm_climate.csv")
+
+x <- c("PPTAVG_BASIN", "PPTAVG_SITE")
+y <- c("T_AVG_BASIN", "T_AVG_SITE")
+files <- c("ppt.png", "t.png")
+printMyPlots(x=x, y=y, mydf, filename = files)
+```
+
+## Including Plots
+
+Precipitation
+![ppt](output/ppt.png)
+
+Temperature
+![t](output/t.png)
